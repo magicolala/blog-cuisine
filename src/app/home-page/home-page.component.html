@@ -1,0 +1,20 @@
+<app-nav [link]="link"></app-nav>
+<!-- ##### Top Catagory Area Start ##### -->
+<section class="top-catagory-area section-padding-80-0">
+  <div class="container">
+    <div class="row">
+      <!-- Top Catagory Area -->
+      <div class="col-12 col-lg-4" *ngFor="let category of categories">
+        <div class="single-top-catagory">
+          <img src="{{category.image}}" alt="">
+          <!-- Content -->
+          <div class="top-cta-content">
+            <h3>{{category.name}}</h3>
+            <a [routerLink]="['/category', category.id]" class="btn delicious-btn">Voir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ##### Top Catagory Area End ##### -->

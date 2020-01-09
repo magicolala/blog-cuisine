@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-12">
+    <div class="section-heading text-left">
+      <h3>Laisser un commentaire</h3>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="contact-form-area">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Name" ngModel>
+          </div>
+          <div class="col-12">
+            <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message" ngModel></textarea>
+          </div>
+          <div class="col-12" *ngIf="post">
+            <input type="hidden" name="postId"  value="{{post.id}}" class="form-control" [(ngModel)]="post.id">
+          </div>
+          <div class="col-12" *ngIf="recipe">
+            <input type="hidden" name="recipeId"  value="{{recipe.id}}" class="form-control" [(ngModel)]="recipe.id">
+          </div>
+          <div class="col-12">
+            <button class="btn delicious-btn mt-30" type="submit">Envoyer</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

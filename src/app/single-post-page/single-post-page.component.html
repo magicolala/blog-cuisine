@@ -1,0 +1,58 @@
+<app-nav [link]="link"></app-nav>
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(./assets/img/bg-img/breadcumb2.jpg);">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12">
+        <div class="breadcumb-text text-center">
+          <h2>Blog</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="receipe-post-area section-padding-80">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="receipe-slider owl-carousel owl-loaded owl-drag">
+          <div class="jumbotron text-center">
+            <img src="{{post.image}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="receipe-content-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="badge badge-info mr-2" *ngFor="let tag of post.tags">{{tag}}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <div class="receipe-headline my-5">
+            <h2>{{post.title}}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-12">
+          <div class="single-preparation-step d-flex">
+            <p>{{post.description}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-12">
+          <div class="card" *ngFor="let comment of comments">
+            <div class="card-header"><h5>Auteur : {{comment.name}}</h5></div>
+            <div class="card-body">Message : {{comment.message}}</div>
+          </div>
+        </div>
+      </div>
+      <app-comment [post]="post"></app-comment>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<app-nav [link]="link"></app-nav>
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(./assets/img/bg-img/breadcumb2.jpg);">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12">
+        <div class="breadcumb-text text-center">
+          <h2>Blog</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="blog-area section-padding-80">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <div class="blog-posts-area">
+
+          <div class="single-blog-area mb-80" *ngFor="let post of posts">
+
+            <div class="blog-thumbnail">
+              <img src="{{post.image}}" alt="">
+
+              <div class="post-date">
+                <a href="#"><span>05</span>April <br> 2018</a>
+              </div>
+            </div>
+
+            <div class="blog-content">
+              <a [routerLink]="['/blog', post.id]" class="post-title">{{post.title}}</a>
+              <div class="meta-data">by Maria Williams
+              </div>
+              <p>{{post.description}}</p>
+              <a [routerLink]="['/blog', post.id]" class="btn delicious-btn mt-30">Voir</a>
+            </div>
+          </div>
+        </div>
+<!--        <nav aria-label="Page navigation example">-->
+<!--          <ul class="pagination">-->
+<!--            <li class="page-item active"><a class="page-link" href="#">01.</a></li>-->
+<!--            <li class="page-item"><a class="page-link" href="#">02.</a></li>-->
+<!--            <li class="page-item"><a class="page-link" href="#">03.</a></li>-->
+<!--          </ul>-->
+<!--        </nav>-->
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="blog-sidebar-area">
+
+          <div class="single-widget mb-80">
+            <h6>Categories</h6>
+            <ul class="list">
+              <li><a (click)="reset()" href="javascript:void(0);">Toutes</a></li>
+              <li *ngFor="let category of categories"><a (click)="selectCategory(category.id)" href="javascript:void(0);">{{category.name}}</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
