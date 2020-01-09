@@ -27,7 +27,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="badge badge-info mr-2" *ngFor="let tag of post.tags">{{tag}}</div>
+          <div class="badge badge-info mr-2" *ngFor="let tag of post.tags"><a href="/tag/{{tag}}">{{tag}}</a></div>
         </div>
       </div>
       <div class="row">

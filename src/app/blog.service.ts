@@ -90,4 +90,20 @@ export class BlogService {
       map(comments => comments.filter(comment => comment.recipeId == idRecipe))
     );
   }
+
+  getPostsByTag(tagSearch: string): Observable<Blog[]> {
+    return this.getPosts().pipe(
+      map(posts => {
+        return posts.filter(elem => elem.tags.includes(tagSearch));
+      })
+    );
+  }
+
+  getRecipesByTag(tagSearch: string): Observable<Recipe[]> {
+    return this.getRecipes().pipe(
+      map(recipes => {
+        return recipes.filter(elem => elem.tags.includes(tagSearch));
+      })
+    );
+  }
 }

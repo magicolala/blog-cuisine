@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {BlogService} from '../blog.service';
 import {Blog} from '../model/blog.class';
 import {Category} from '../model/category.class';
+import {Recipe} from '../model/recipe.class';
 
 @Component({
   selector: 'app-category-page',
@@ -12,7 +13,7 @@ import {Category} from '../model/category.class';
 export class CategoryPageComponent implements OnInit {
   category: Category;
   posts: Blog[];
-  recipes;
+  recipes: Recipe[];
 
   constructor(private route: ActivatedRoute, private blogService: BlogService) {
   }

@@ -15,6 +15,7 @@ import { SingleRecipePageComponent } from './single-recipe-page/single-recipe-pa
 import { SinglePostPageComponent } from './single-post-page/single-post-page.component';
 import { CommentComponent } from './partials/comment/comment.component';
 import {FormsModule} from '@angular/forms';
+import { TagPageComponent } from './tag-page/tag-page.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomePageComponent},
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   {path: 'category/:id', component: CategoryPageComponent},
   {path: 'recipe/:id', component: SingleRecipePageComponent},
   {path: 'blog/:id', component: SinglePostPageComponent},
+  {path: 'tag/:tag', component: TagPageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     LoaderComponent,
     SingleRecipePageComponent,
     SinglePostPageComponent,
-    CommentComponent
+    CommentComponent,
+    TagPageComponent
   ],
   imports: [
     BrowserModule,
