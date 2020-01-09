@@ -1,5 +1,5 @@
 export class Comment {
-  id?: string|number;
+  id?: number;
   postId?: string;
   recipeId?: string;
   message: string;

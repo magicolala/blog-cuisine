@@ -70,13 +70,13 @@ export class BlogService {
     let max = 0;
     this.getComments().subscribe(comments => {
       comments.forEach(comment => {
-        if (parseInt(comment.id, 10) > max) {
+        if (comment.id > max) {
           max = comment.id;
         }
         com.id = max + 1;
         console.log(com);
       });
-      return this.http.patch(baseUrlComment + '/' + max + '.json', com, httpOptions).subscribe(() => document.location.reload());
+      return this.http.patch(baseUrlComment + '/' + com.id + '.json', com, httpOptions).subscribe(() => document.location.reload());
     });
   }
 

@@ -3,6 +3,7 @@ import {Blog} from '../model/blog.class';
 import {BlogService} from '../blog.service';
 import {ActivatedRoute} from '@angular/router';
 import {Comment} from '../model/comment.class';
+import {Category} from '../model/category.class';
 
 @Component({
   selector: 'app-single-post-page',
@@ -13,6 +14,7 @@ export class SinglePostPageComponent implements OnInit {
   post: Blog;
   link = 'blog';
   comments: Comment[];
+  category: Category;
 
   constructor(private route: ActivatedRoute, private blogService: BlogService) {
   }
