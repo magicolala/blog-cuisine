@@ -74,7 +74,6 @@ export class BlogService {
           max = comment.id;
         }
         com.id = max + 1;
-        console.log(com);
       });
       return this.http.patch(baseUrlComment + '/' + com.id + '.json', com, httpOptions).subscribe(() => document.location.reload());
     });
