@@ -10,10 +10,28 @@ import {Category} from '../model/category.class';
 export class HomePageComponent implements OnInit {
   categories: Category[];
   link = 'home';
+  tags: string[] = [];
+
   constructor(private blogService: BlogService) { }
 
   ngOnInit() {
+    const tags = [];
     this.blogService.getCategories().subscribe(categories => this.categories = categories);
+    this.blogService.getPosts().subscribe( posts => {
+      posts.forEach( post => {
+          post.tags.forEach(tag => {
+            tags.push(tag);
+            this.tags = [...new Set(tags)];
+          });
+      });
+    });
+    this.blogService.getRecipes().subscribe( recipes => {
+      recipes.forEach( recipe => {
+        recipe.tags.forEach(tag => {
+          tags.push(tag);
+          this.tags = [...new Set(tags)];
+        });
+      });
+    });
   }
-
 }
