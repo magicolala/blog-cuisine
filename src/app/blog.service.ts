@@ -40,13 +40,17 @@ export class BlogService {
 
   getPostsByCategory(idCategory): Observable<Blog[]> {
     return this.getPosts().pipe(
-      map(posts => posts.filter(post => post.categoryId == idCategory))
+      map(posts => {
+        return posts.filter(elem => elem.categoryId.includes(parseInt(idCategory, 10)));
+      })
     );
   }
 
   getRecipesByCategory(idCategory): Observable<Recipe[]> {
     return this.getRecipes().pipe(
-      map(recipes => recipes.filter(recipe => recipe.categoryId == idCategory))
+      map(recipes => {
+        return recipes.filter(elem => elem.categoryId.includes(parseInt(idCategory, 10)));
+      })
     );
   }
 

@@ -33,7 +33,7 @@
       <div class="row">
         <div class="col-12 col-md-8">
           <div class="receipe-headline my-5">
-            <h2>{{recipe.title}} <a [routerLink]="['/category', category.id]">{{category.name}}</a></h2>
+            <h2>{{recipe.title}} <a *ngFor="let cat of categories" [routerLink]="['/category', cat.id]">{{cat.name}} </a></h2>
             <div class="receipe-duration">
               <h6>Prep: {{recipe.makeTime}} mins</h6>
               <h6>Cook: {{recipe.cookTime}} mins</h6>
@@ -82,7 +82,7 @@
         <img src="{{recipe.image}}" alt="">
       </div>
       <div class="blog-content">
-        <a [routerLink]="['/recipe', recipe.id]" class="post-title">{{recipe.title}} - <small>{{category.name}}</small></a>
+        <a [routerLink]="['/recipe', recipe.id]" class="post-title">{{recipe.title}}</a>
         <a [routerLink]="['/recipe', recipe.id]" class="btn delicious-btn mt-30">Voir</a>
       </div>
     </div>
@@ -105,7 +105,7 @@
       </div>
 
       <div class="blog-content">
-        <a [routerLink]="['/blog', post.id]" class="post-title">{{post.title}} - <small>{{category.name}}</small></a>
+        <a [routerLink]="['/blog', post.id]" class="post-title">{{post.title}}</a>
         <div class="meta-data">by Maria Williams
         </div>
         <a [routerLink]="['/blog', post.id]" class="btn delicious-btn mt-30">Lire</a>

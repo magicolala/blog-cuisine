@@ -7,5 +7,5 @@ export class Recipe {
   description: string;
   tags: string[];
   ingredients: string[];
-  categoryId: number;
+  categoryId: number[];
 }
