@@ -22,7 +22,7 @@ export class RecipePageComponent implements OnInit {
   }
 
   selectCategory(id: number) {
-    this.blogService.getRecipes().subscribe(recipes => this.recipes = recipes.filter(recipe => recipe.categoryId.includes(id)));
+    this.blogService.getRecipes().subscribe(recipes => this.recipes = recipes.filter(recipe => recipe.categoryId == id));
   }
 
   reset() {

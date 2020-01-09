@@ -1,6 +1,6 @@
 export class Blog {
   id: number;
-  categoryId: Array<number>;
+  categoryId: number;
   image: string;
   tags: Array<string>;
   description: string;

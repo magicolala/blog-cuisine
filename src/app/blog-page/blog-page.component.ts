@@ -21,7 +21,7 @@ export class BlogPageComponent implements OnInit {
   }
 
   selectCategory(id: number) {
-    this.blogService.getPosts().subscribe(posts => this.posts = posts.filter(post => post.categoryId.includes(id)));
+    this.blogService.getPosts().subscribe(posts => this.posts = posts.filter(post => post.categoryId == id));
   }
 
   reset() {

@@ -15,7 +15,7 @@ export class SinglePostPageComponent implements OnInit {
   post: Blog;
   link = 'blog';
   comments: Comment[];
-  categories: Category[] = [];
+  category: Category;
   relatedPosts: Blog[];
   relatedRecipes: Recipe[];
 
@@ -26,11 +26,9 @@ export class SinglePostPageComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.blogService.getPost(id).subscribe(post => {
       this.post = post;
-      post.categoryId.forEach(idCat => {
-        this.blogService.getCategory(idCat).subscribe(category => this.categories.push(category));
-      });
-      this.blogService.getPostsByCategory(post.categoryId[0]).subscribe(posts => this.relatedPosts = posts);
-      this.blogService.getRecipesByCategory(post.categoryId[0]).subscribe(recipes => this.relatedRecipes = recipes);
+      this.blogService.getCategory(post.categoryId).subscribe(category => this.category = category);
+      this.blogService.getPostsByCategory(post.categoryId).subscribe(posts => this.relatedPosts = posts);
+      this.blogService.getRecipesByCategory(post.categoryId).subscribe(recipes => this.relatedRecipes = recipes);
     });
     this.blogService.getCommentsByPost(id).subscribe(comments => this.comments = comments);
   }

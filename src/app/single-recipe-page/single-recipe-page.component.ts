@@ -15,7 +15,7 @@ export class SingleRecipePageComponent implements OnInit {
   recipe: Recipe;
   link = 'recipe';
   comments: Comment[];
-  categories: Category[] = [];
+  category: Category;
   relatedRecipes: Recipe[];
   relatedPosts: Blog[];
 
@@ -26,11 +26,9 @@ export class SingleRecipePageComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.blogService.getRecipe(id).subscribe(recipe => {
       this.recipe = recipe;
-      recipe.categoryId.forEach(idCat => {
-        this.blogService.getCategory(idCat).subscribe(category => this.categories.push(category));
-      });
-      this.blogService.getRecipesByCategory(recipe.categoryId[0]).subscribe(recipes => this.relatedRecipes = recipes);
-      this.blogService.getPostsByCategory(recipe.categoryId[0]).subscribe(posts => this.relatedPosts = posts);
+      this.blogService.getCategory(recipe.categoryId).subscribe(category => this.category = category);
+      this.blogService.getRecipesByCategory(recipe.categoryId).subscribe(recipes => this.relatedRecipes = recipes);
+      this.blogService.getPostsByCategory(recipe.categoryId).subscribe(posts => this.relatedPosts = posts);
     });
     this.blogService.getCommentsByRecipe(id).subscribe(comments => this.comments = comments);
   }
