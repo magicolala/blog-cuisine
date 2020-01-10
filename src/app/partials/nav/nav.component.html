@@ -1,3 +1,16 @@
+<div class="search-wrapper" [ngClass]="status ? 'on' : ''">
+  <div class="close-btn" (click)="onCloseSearch()"><i class="fa fa-times" aria-hidden="true"></i></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form (ngSubmit)="onSubmit(formSearch)" #formSearch="ngForm" method="post">
+          <input type="search" name="search" placeholder="Type any keywords..." ngModel>
+          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- ##### Header Area Start ##### -->
 <header class="header-area">
   <!-- Navbar Area -->
@@ -30,7 +43,9 @@
                 <li [ngClass]="{'active': link === 'blog'}"><a routerLink="/blog">Blog</a></li>
                 <li [ngClass]="{'active': link === 'recipe'}"><a routerLink="/recipe">Recettes</a></li>
               </ul>
-
+              <div class="search-btn" (click)="onSearchButtonPressed()">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </div>
             </div>
             <!-- Nav End -->
           </div>

@@ -20,7 +20,7 @@ export class TagPageComponent implements OnInit {
   ngOnInit() {
     const tag = this.route.snapshot.paramMap.get('tag');
     this.category.name = tag;
-    this.blogService.getPostsByTag(tag).subscribe(posts => {this.posts = posts; console.log(posts)});
+    this.blogService.getPostsByTag(tag).subscribe(posts => this.posts = posts);
     this.blogService.getRecipesByTag(tag).subscribe(recipes => this.recipes = recipes);
   }
 

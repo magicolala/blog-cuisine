@@ -106,4 +106,24 @@ export class BlogService {
       })
     );
   }
+
+  getPostsBySearch(search: string): Observable<Blog[]> {
+    return this.getPosts().pipe(
+      map(posts => {
+        return posts.filter((el) => {
+          return el.title.indexOf(search) !== -1;
+        });
+      })
+    );
+  }
+
+  getRecipesBySearch(search: string): Observable<Recipe[]> {
+    return this.getRecipes().pipe(
+      map(recipes => {
+        return recipes.filter((el) => {
+          return el.title.indexOf(search) !== -1;
+        });
+      })
+    );
+  }
 }
