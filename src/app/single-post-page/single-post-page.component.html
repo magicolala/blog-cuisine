@@ -92,7 +92,7 @@
       <div class="blog-thumbnail">
         <img src="{{recipe.image}}" alt="">
       </div>
-      <div class="blog-content">
+      <div class="blog-content" style="display: flex; flex-direction: column;">
         <a [routerLink]="['/recipe', recipe.id]" class="post-title">{{recipe.title}}</a>
         <a [routerLink]="['/recipe', recipe.id]" class="btn delicious-btn mt-30">Voir</a>
       </div>
